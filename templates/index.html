@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
+
+
+{% block head  %}
+<script>
+    $(document).ready(function(){
+      $(".close").click(function(){
+        $(this).parent().hide();
+      });
+     
+    });
+    </script>
+{% endblock %}
+
 {% block body %}
 
 

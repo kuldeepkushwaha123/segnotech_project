@@ -18,7 +18,7 @@ def post_new(request):
             form = PostForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request,'Blog created successfully')
+                messages.success(request,'Blog created successfully !')
                 return redirect('/')
     
         else:
@@ -32,6 +32,7 @@ def edit_customer(request,id=None):
     form = PostForm(request.POST or None,request.FILES or None,instance=data)
     if form.is_valid():
         form.save()
+        messages.success(request,'Blog Updated successfully !')
         return redirect('/')
     
     return render (request,'edit.html',{'form':form})
@@ -40,5 +41,6 @@ def delete_customer(request,id=None):
     rec = Post.objects.get(pk=id)
     if request.method == "POST":
         rec.delete()
+        messages.success(request,'Blog Deleted successfully !')
         return redirect('/')
     return render(request,'delete.html')
