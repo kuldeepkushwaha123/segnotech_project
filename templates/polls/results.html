@@ -1,0 +1,19 @@
+{% extends "polls/base1.html" %}
+
+{% block body %}
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="/polls/{{ question.slug }}">Vote again?</a>
+
+{% endblock %}
+
+
+
+
+
