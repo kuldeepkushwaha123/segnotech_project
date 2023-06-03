@@ -19,9 +19,15 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "Programming world Admin"
+admin.site.site_title = "Programming world Admin"
+admin.site.index_title = " Welcome to Programming world Admin"
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('app.urls')),
+    path('',include('home.urls')),
+    path('blog/',include('blog.urls')),   # this is a blog as blog url
     path('polls/',include('polls.urls'))
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

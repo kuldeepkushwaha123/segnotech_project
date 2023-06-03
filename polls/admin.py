@@ -10,7 +10,7 @@ class ChoiceInline(admin.StackedInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ["question_text","pub_date", "was_published_recently"]
-    prepopulated_fields = {"slug": ("question_text",)}
+
     fieldsets = [
         (None, {"fields": ["question_text"]}),
 
